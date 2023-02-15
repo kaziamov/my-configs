@@ -1,8 +1,4 @@
-# debian11-first-config
-After installation Debian 11 needed install IDE, Browser, GIT, etc. 
-I use this Makefile for simple and fast config new machine
-
-```FNAME = "Your Full Name"
+FNAME = "Your Full Name"
 EMAIL = "your_email@whatever.com"
 
 
@@ -63,4 +59,4 @@ connect-github:
 	x-www-browser --new-window https://github.com/settings/keys
 
 check-github:
-	ssh -T git@github.com```
+	ssh -T git@github.com
