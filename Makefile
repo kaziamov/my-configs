@@ -1,5 +1,7 @@
-FNAME = "Your Full Name"
-EMAIL = "your_email@whatever.com"
+# FNAME = "Your Full Name"
+# EMAIL = "your_email@whatever.com"
+FNAME = "Ilia Kaziamov"
+EMAIL = "kaziamov@outlook.com"
 
 
 fix-repo:
@@ -60,3 +62,61 @@ connect-github:
 
 check-github:
 	ssh -T git@github.com
+
+install-poetry:
+	python3 -V
+	sudo curl -sSL https://install.python-poetry.org | python3 - --git https://github.com/python-poetry/poetry.git@master && \
+	export PATH="/home/ilia/.local/bin:$PATH" && \
+	poetry --version
+
+install-flatpak:
+	sudo apt install flatpak && \
+	sudo apt install gnome-software-plugin-flatpak && \
+	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+install-obs:
+	flatpak install flathub com.obsproject.Studio
+
+obs:
+	flatpak run com.obsproject.Studio
+
+install-brew:
+	sudo apt-get install build-essential procps curl file git && \
+	/bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && \
+	eval "$$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" && \
+	brew doctor && \
+	(echo; echo 'eval "$$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/ilia/.profile && \
+	eval "$$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" && \
+	sudo apt-get install build-essential && \
+	brew install gcc
+
+install-neovim:
+	snap install nvim --classic
+
+install-railway:
+	brew install railway && \
+	railway login --browserless
+
+
+install-powersaver:
+	sudo add-apt-repository ppa:slimbook/slimbook && \
+	sudo apt update && \
+	sudo apt install slimbookbattery && \
+	sudo apt purge slimbookbattery && \
+	sudo apt purge tlp tlp-drw
+
+install-pyenv:
+	brew update && \
+	sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev && \
+	sudo apt install libedit-dev && \
+	sudo apt-get install make && \
+	brew install pyenv
+
+battery-control:
+	sudo apt -y install tlp tlp-rdw && \
+	sudo apt -y install acpi-call-dkms
+
+install-docker:
+	sudo apt install docker-compose	&& \
+	sudo usermod -aG docker $$USER && \
+	sudo service docker restart
