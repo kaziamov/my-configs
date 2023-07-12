@@ -120,3 +120,8 @@ install-docker:
 	sudo apt install docker-compose	&& \
 	sudo usermod -aG docker $$USER && \
 	sudo service docker restart
+
+install-python:
+	export LDFLAGS="-Wl,-rpath,/home/ilia/openssl/lib"
+	CONFIGURE_OPTS="-with-openssl=/home/ilia/openssl" \
+	pyenv install 3.9.15
