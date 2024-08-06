@@ -103,3 +103,10 @@ install-python:
 
 install-psql:
 	sudo apt install postgresql
+
+# Fix command
+update-docker-path:
+	sudo systemctl stop docker && \
+	sudo touch /etc/docker/daemon.json && \
+	sudo echo '{\n"data-root": "/mnt/drive"\n}' >> /etc/docker/daemon.json && \
+	sudo systemctl start docker
