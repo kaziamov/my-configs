@@ -12,6 +12,7 @@ upgrade:
 	sudo apt-get dist-upgrade
 
 fix:
+	sudo dpkg --configure -a && \
 	sudo apt --fix-broken install
 rm:
 	sudo apt autoremove
