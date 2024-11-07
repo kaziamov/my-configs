@@ -97,9 +97,9 @@ install-docker:
 	sudo service docker restart
 
 install-python:
-	export LDFLAGS="-Wl,-rpath,/home/ilia/openssl/lib"
-	CONFIGURE_OPTS="-with-openssl=/home/ilia/openssl" \
-	pyenv install 3.9.15
+	CPPFLAGS="-I$(shell brew --prefix openssl)/include" \
+	LDFLAGS="-L$(shell brew --prefix openssl)/lib" \
+	pyenv install 3.10.11
 
 install-psql:
 	sudo apt install postgresql
@@ -108,5 +108,12 @@ install-psql:
 update-docker-path:
 	sudo systemctl stop docker && \
 	sudo touch /etc/docker/daemon.json && \
-	sudo echo '{\n"data-root": "/mnt/drive"\n}' >> /etc/docker/daemon.json && \
+	sudo echo '{\\n"data-root": "/mnt/drive"\\n}' >> /etc/docker/daemon.json && \
 	sudo systemctl start docker
+
+reinstall-openssl:
+	sudo apt-get install openssl libssl-dev  && \
+	brew install openssl@1.1
+
+ubuntu-tweaks:
+	sudo apt install gnome-tweaks
