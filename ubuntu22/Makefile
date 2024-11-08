@@ -32,7 +32,9 @@ install-chrome:
 
 install-git:
 	sudo apt install git && \
-	git --version && \
+	git --version
+
+config-git:
 	git config --global core.autocrlf input && \
 	git config --global user.name $(FNAME) && \
 	git config --global user.email $(EMAIL)
