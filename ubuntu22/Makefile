@@ -119,3 +119,6 @@ reinstall-openssl:
 
 ubuntu-tweaks:
 	sudo apt install gnome-tweaks
+
+create-git-config:
+	cp ./config ~/.ssh/config
