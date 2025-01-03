@@ -1,0 +1,14 @@
+services:
+
+  pi-cloudflared:
+    image: cloudflare/cloudflared:latest
+    labels:
+      - io.portainer.accesscontrol.public
+    restart: always
+    command: tunnel --no-autoupdate run --token ${CLOUDFLARE_TOKEN}
+    networks:
+      - cloudflare_tunnel
+
+networks:
+  cloudflare_tunnel:
+    external: true
