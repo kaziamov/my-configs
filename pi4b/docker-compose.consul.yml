@@ -9,8 +9,8 @@ services:
           - "8302:8302"   
         command: consul agent -config-dir=/etc/consul.d
         volumes:
-          - /opt/consul:/consul/data
-          - ./.consul:/etc/consul.d
+          - ./.consul/data:/opt/consul
+          - ./.consul/config:/etc/consul.d
         networks:
           - pi-net
 
