@@ -14,3 +14,4 @@ consul:
 
 networks:
   pi-net:
+    driver: bridge
