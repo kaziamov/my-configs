@@ -7,7 +7,7 @@ services:
           - "8300:8300"   
           - "8301:8301"   
           - "8302:8302"   
-        command: agent -server -bootstrap-expect=1 -ui -client=0.0.0.0
+        command: consul agent -config-dir=/etc/consul.d
         volumes:
           - ./data:/consul/data
         networks:
