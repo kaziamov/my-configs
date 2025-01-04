@@ -1,0 +1,9 @@
+version: "3.8"
+
+services:
+  black:
+    image: python:3.11-slim-buster
+    restart: always
+    ports:
+      - "45484:45484"
+    command:  bash -c "pip install black[d] && blackd --bind-host 0.0.0.0 --bind-port 45484"
