@@ -9,3 +9,8 @@ consul:
     command: agent -server -bootstrap-expect=1 -ui -client=0.0.0.0
     volumes:
       - ./data:/consul/data
+    networks:
+      - pi-net
+
+networks:
+  pi-net:
