@@ -10,7 +10,7 @@ services:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=admin
       - GF_DATABASE_TYPE=postgres
-      - GF_DATABASE_HOST=0.0.0.0:5432
+      - GF_DATABASE_HOST=192.168.4.30:5432
       - GF_DATABASE_NAME=grafana
       - GF_DATABASE_USER=postgres
       - GF_DATABASE_PASSWORD=postgres
