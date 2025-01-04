@@ -9,27 +9,15 @@ services:
     environment:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=admin
-      - GF_DATABASE_TYPE=mysql
-      - GF_DATABASE_HOST=db:3306
+      - GF_DATABASE_TYPE=postgres
+      - GF_DATABASE_HOST=0.0.0.0:5432
       - GF_DATABASE_NAME=grafana
-      - GF_DATABASE_USER=grafana
-      - GF_DATABASE_PASSWORD=grafana
-    depends_on:
-      - db
+      - GF_DATABASE_USER=postgres
+      - GF_DATABASE_PASSWORD=postgres
     volumes:
       - grafana_data:/var/lib/grafana
 
-  db:
-    image: mysql:5.7
-    container_name: grafana-db
-    environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=grafana
-      - MYSQL_USER=grafana
-      - MYSQL_PASSWORD=grafana
-    volumes:
-      - db_data:/var/lib/mysql
+
 
 volumes:
   grafana_data:
-  db_data:
