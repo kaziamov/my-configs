@@ -56,7 +56,7 @@ connect-work-github:
 	x-www-browser --new-window https://github.com/settings/keys
 
 check-github:
-	ssh -T git@github.com
+	ssh -vT git@github.com
 
 install-poetry:
 	python3 -V
